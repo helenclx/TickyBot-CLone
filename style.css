@@ -1,0 +1,375 @@
+:root {
+    --ff-primary: 'Signika', Arial, Helvetica, sans-serif;
+
+    --fw-reg: 300;
+    --fw-bold: 700;
+
+    --clr-light: #ffffff;
+    --clr-dark: rgba(0, 0, 0, 0.75);
+    --clr-accent: #40596b;
+    --clr-header-bg: #55C0EC;
+    --clr-features-bg: #90DDAA;
+    --clr-nav-link: #FFD05A;
+
+    --fs-h1: 4.5rem;
+    --fs-h2: 2.25rem;
+    --fs-body: 1.2rem;
+    --fs-footer: .8rem;
+}
+
+@media only screen and (min-width: 60rem) {
+    :root {
+        --fs-h1: 4.8rem;
+        --fs-h2: 2.5rem;
+    }
+}
+
+/* CSS RESET */
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+/* Remove default margin */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+figure,
+blockquote,
+dl,
+dd {
+    margin: 0;
+}
+
+/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+ul[role='list'],
+ol[role='list'] {
+    list-style: none;
+}
+
+/* Set core root defaults */
+html:focus-within {
+    scroll-behavior: smooth;
+}
+
+/* Set core body defaults */
+body {
+    min-height: 100vh;
+    text-rendering: optimizeSpeed;
+    line-height: 1.5;
+}
+
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+    text-decoration-skip-ink: auto;
+}
+
+/* Make images easier to work with */
+img,
+picture {
+    max-width: 100%;
+    display: block;
+}
+
+/* Inherit fonts for inputs and buttons */
+input,
+button,
+textarea,
+select {
+    font: inherit;
+}
+
+/* Remove all animations, transitions and smooth scroll for people that prefer not to see them */
+@media (prefers-reduced-motion: reduce) {
+    html:focus-within {
+        scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
+
+/* STYLING BEGINS */
+
+/* General Style */
+body {
+    font-family: var(--ff-primary);
+    font-weight: var(--fw-reg);
+    font-size: var(--fs-body);
+    color: var(--clr-dark);
+}
+
+section {
+    padding: 2.5em 1.6em;
+}
+
+@media only screen and (min-width: 60rem) {
+    section {
+        padding: 2.75em 2.3em;
+    }
+}
+
+/* Typography */
+h1 {
+    font-size: var(--fs-h1);
+}
+
+h2 {
+    font-size: var(--fs-h2);
+}
+
+h1, h2 {
+    font-weight: var(--fw-reg);
+}
+
+.section__title {
+    margin-bottom: .5em;
+    text-align: center;
+}
+
+section p:not(:last-child) {
+    margin-bottom: 3em;
+}
+
+footer p:not(:last-child) {
+    margin-bottom: .75em;
+}
+
+.bold-font {
+    font-weight: var(--fw-bold);
+}
+
+/* Buttons */
+button {
+    cursor: pointer;
+}
+
+button:focus {
+    outline-offset: 0.2rem;
+}
+
+.slack-btn {
+    border: none;
+    padding: 0.5em 0.8em;
+    display: flex;
+    align-items: center;
+    gap: 0.5em;
+    font-size: 1.5em;
+    border-radius: 0.15em;
+    margin-left: auto;
+    margin-right: auto;
+    transition: transform 750ms cubic-bezier(.5, 0, .5, 1);
+}
+
+.slack-btn:hover {
+    transform: scale(0.95);
+}
+
+.slack-logo {
+    width: 2.5rem;
+    transition: all 1s;
+}
+
+.slack-btn:hover .slack-logo {
+    transform: rotate(17deg) scale(1.5);
+}
+
+.light-btn {
+    background: var(--clr-light);
+    color: var(--clr-dark);
+}
+
+.light-btn:focus {
+    outline: 0.3rem solid var(--clr-light);
+}
+
+.dark-btn {
+    background: var(--clr-accent);
+    color: var(--clr-light);
+    margin-bottom: 2em;
+}
+
+.dark-btn:focus {
+    outline: 0.3rem solid var(--clr-dark);
+}
+
+/* Navigation Bar */
+.navbar {
+    background: var(--clr-accent);
+    padding: 0.05em 0;
+}
+
+.navbar__list {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.navbar__link {
+    color: var(--clr-nav-link);
+    text-decoration: none;
+}
+
+@media only screen and (min-width: 60rem) {
+    .navbar__list {
+        max-width: 25%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+/* Header */
+.hero {
+    background: var(--clr-header-bg);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1.3em;
+}
+
+.header__title {
+    animation: moveDown 1s;
+}
+
+.hero__intro {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 2em;
+    margin-bottom: 3em;
+    animation: fadeIn 2s;
+}
+
+.hero__text {
+    color: var(--clr-dark);
+    font-size: 1.3em;
+}
+
+.hero__img {
+    animation: fadeIn 3s;
+}
+
+@keyframes moveDown {
+    0% { transform: translateY(-1.2rem); }
+}
+
+@keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+@media only screen and (min-width: 60rem) {
+    .hero {
+        flex-direction: row;
+        justify-content: center;
+        justify-content: space-evenly;
+        padding: 4.5em;
+    }
+
+    .hero__intro {
+        max-width: 40rem;
+        margin-bottom: 0;
+    }
+}
+
+/* Intro Section */
+.intro__grid {
+    margin-bottom: 3em;
+}
+
+@media only screen and (min-width: 60rem) {
+    .intro__grid {
+        display: flex;
+        margin-bottom: 0;
+        gap: 2.5em;
+    }
+}
+
+/* Features Section */
+.features {
+    background: var(--clr-features-bg);
+    text-align: center;
+}
+
+.features__container {
+    display: grid;
+    gap: 2.5em;
+    grid-template-columns: repeat(auto-fit, minmax(18.75rem, 1fr));
+    margin-top: 2em;
+}
+
+.feature {
+    width: 100%;
+    background: var(--clr-light);
+}
+
+.feature__img-wrapper {
+    background: var(--clr-accent);
+    padding: 4em 2.3em;
+}
+
+.feature__text {
+    padding: 0.75em 0.5em;
+}
+
+@media only screen and (min-width: 60rem) {
+    .feature__img-wrapper img {
+        max-width: 13.5rem;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .feature__text {
+        padding: 1em 0.75em;
+    }
+}
+
+/* Call to Action Section */
+.cta {
+    text-align: center;
+}
+
+/* Footer */
+.footer {
+    background: var(--clr-accent);
+    color: var(--clr-light);
+    font-size: var(--fs-footer);
+    text-align: center;
+    padding: 1.6em 0;
+}
+
+.footer a {
+    color: var(--clr-light);
+}
+
+/* Scrool to Top Button */
+.top-btn {
+    position: fixed;
+    bottom: 20px;
+    right: 30px;
+    z-index: 999;
+    border: none;
+    background-color: var(--clr-nav-link);
+    border-radius: 0.2em;
+    padding: 0.4em;
+}
+
+.top-btn img {
+    width: 1.6rem;
+}
+
+.hidden {
+    display: none;
+}
